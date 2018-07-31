@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="node1 我嚓 我嚓2 我嚓3斤斤计较   2233 444斤斤计较2    233 333">
+<meta name="description" content="npm(node包管理工具)的使用 第三方node模块（包）的管理工具，可以使用该工具下载安装第三方模块（包），当然也可以创建和上传发布自己的模块（包）技术框架介绍 node.js 基础核心开发语言 Express 一个简洁而灵活的node.js Web应用框架，提供一系列强大的特性帮助我们创建各种web应用 Mongodb 第三方模块&amp;amp; 中间件   bodyParser:解析post请求">
 <meta property="og:type" content="website">
 <meta property="og:title" content="node">
 <meta property="og:url" content="http://yoursite.com/node/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="node1 我嚓 我嚓2 我嚓3斤斤计较   2233 444斤斤计较2    233 333">
+<meta property="og:description" content="npm(node包管理工具)的使用 第三方node模块（包）的管理工具，可以使用该工具下载安装第三方模块（包），当然也可以创建和上传发布自己的模块（包）技术框架介绍 node.js 基础核心开发语言 Express 一个简洁而灵活的node.js Web应用框架，提供一系列强大的特性帮助我们创建各种web应用 Mongodb 第三方模块&amp;amp; 中间件   bodyParser:解析post请求">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-30T10:04:06.229Z">
+<meta property="og:updated_time" content="2018-07-31T08:21:47.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node">
-<meta name="twitter:description" content="node1 我嚓 我嚓2 我嚓3斤斤计较   2233 444斤斤计较2    233 333">
+<meta name="twitter:description" content="npm(node包管理工具)的使用 第三方node模块（包）的管理工具，可以使用该工具下载安装第三方模块（包），当然也可以创建和上传发布自己的模块（包）技术框架介绍 node.js 基础核心开发语言 Express 一个简洁而灵活的node.js Web应用框架，提供一系列强大的特性帮助我们创建各种web应用 Mongodb 第三方模块&amp;amp; 中间件   bodyParser:解析post请求">
 
 
 
@@ -281,19 +281,48 @@
       <div class="post-body">
         
         
-          <h1 id="node1"><a href="#node1" class="headerlink" title="node1"></a>node1</h1><ul>
-<li>我嚓</li>
-<li>我嚓2</li>
-<li>我嚓3<h2 id="斤斤计较"><a href="#斤斤计较" class="headerlink" title="斤斤计较"></a>斤斤计较</h2></li>
+          <h1 id="npm-node包管理工具-的使用"><a href="#npm-node包管理工具-的使用" class="headerlink" title="npm(node包管理工具)的使用"></a>npm(node包管理工具)的使用</h1><ul>
+<li>第三方node模块（包）的管理工具，可以使用该工具下载安装第三方模块（包），当然也可以创建和上传发布自己的模块（包）<h1 id="技术框架介绍"><a href="#技术框架介绍" class="headerlink" title="技术框架介绍"></a>技术框架介绍</h1></li>
+<li>node.js 基础核心开发语言</li>
+<li>Express 一个简洁而灵活的node.js Web应用框架，提供一系列强大的特性帮助我们创建各种web应用</li>
+<li>Mongodb <h1 id="第三方模块-amp-中间件"><a href="#第三方模块-amp-中间件" class="headerlink" title="第三方模块&amp; 中间件"></a>第三方模块&amp; 中间件</h1></li>
 </ul>
 <ol>
-<li>2233</li>
-<li>444<h2 id="斤斤计较2"><a href="#斤斤计较2" class="headerlink" title="斤斤计较2"></a>斤斤计较2</h2></li>
+<li>bodyParser:解析post请求数据</li>
+<li>cookies:读/写cookie</li>
+<li>swig:模板解析引擎</li>
+<li>mongoose:操作mongodb数据<br>5.markdown:markdown语法解析生成模块<h1 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h1></li>
 </ol>
-<hr>
 <ul>
-<li>233</li>
-<li>333</li>
+<li>在webstorm 左下角点击terminal</li>
+<li>输入npm init会生成一个package.json<h1 id="依赖模块安装"><a href="#依赖模块安装" class="headerlink" title="依赖模块安装"></a>依赖模块安装</h1></li>
+<li>安装express npm install –save express</li>
+<li>安装body-parser npm install –save body-parser</li>
+<li>安装cookies npm install –save cookies</li>
+<li>安装markdown npm install –save markdown</li>
+<li>安装mongoose npm install –save mongoose</li>
+<li>安装swig npm install –save swig</li>
+<li>会在package.json文件下的<h1 id="项目结构分析"><a href="#项目结构分析" class="headerlink" title="项目结构分析"></a>项目结构分析</h1></li>
+<li>db 数据库存储目录</li>
+<li>models 数据库模型文件目录</li>
+<li>node_modules node第三方模块目录</li>
+<li>public 公共文件目录（css,js,image…）</li>
+<li>routers 路由文件目录</li>
+<li>schemas 数据库结构文件目录（schema）’</li>
+<li>views 模板视图文件目录</li>
+<li>app.js 应用启动文件</li>
+<li>package.json<h1 id="创建应用-监听端口"><a href="#创建应用-监听端口" class="headerlink" title="创建应用 监听端口"></a>创建应用 监听端口</h1></li>
+<li>var express = require(‘express’)； 加载express模块</li>
+<li>var app = express(); 创建app应用 等同于node.js中Http.createServer();</li>
+<li>app.listen(8081);监听http请求<h1 id="用户的访问"><a href="#用户的访问" class="headerlink" title="用户的访问"></a>用户的访问</h1></li>
+<li>用户通过url访问web应用，如：<a href="http://localhost:8081/" target="_blank" rel="noopener">http://localhost:8081/</a></li>
+<li>web后端根据用户访问的url处理不同的业务逻辑<h1 id="处理请求输出"><a href="#处理请求输出" class="headerlink" title="处理请求输出"></a>处理请求输出</h1></li>
+<li>通过app.get()或app.post()等方法可以把一个url路径和一个或n个函数进行绑定</li>
+<li>app.get(‘/‘,function(req,res,next) {</li>
+<li>req:request对象-保存客户端请求相关的一些数据-http.reqest</li>
+<li>res:response对象-服务端输出的对象，提供了一些服务器端输出的相关方法-http.response</li>
+<li>next:方法，用于执行下一个和路径匹配的函数</li>
+<li>})<h1 id="内容输出"><a href="#内容输出" class="headerlink" title="内容输出"></a>内容输出</h1>通过res.send(string)发送内容至客户端</li>
 </ul>
 
         
@@ -408,7 +437,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#node1"><span class="nav-number">1.</span> <span class="nav-text">node1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#斤斤计较"><span class="nav-number">1.1.</span> <span class="nav-text">斤斤计较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斤斤计较2"><span class="nav-number">1.2.</span> <span class="nav-text">斤斤计较2</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#npm-node包管理工具-的使用"><span class="nav-number">1.</span> <span class="nav-text">npm(node包管理工具)的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技术框架介绍"><span class="nav-number">2.</span> <span class="nav-text">技术框架介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三方模块-amp-中间件"><span class="nav-number">3.</span> <span class="nav-text">第三方模块&amp; 中间件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目初始化"><span class="nav-number">4.</span> <span class="nav-text">项目初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖模块安装"><span class="nav-number">5.</span> <span class="nav-text">依赖模块安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目结构分析"><span class="nav-number">6.</span> <span class="nav-text">项目结构分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建应用-监听端口"><span class="nav-number">7.</span> <span class="nav-text">创建应用 监听端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户的访问"><span class="nav-number">8.</span> <span class="nav-text">用户的访问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理请求输出"><span class="nav-number">9.</span> <span class="nav-text">处理请求输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内容输出"><span class="nav-number">10.</span> <span class="nav-text">内容输出</span></a></li></ol></div>
             
 
           </div>
