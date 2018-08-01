@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="npm(node包管理工具)的使用 第三方node模块（包）的管理工具，可以使用该工具下载安装第三方模块（包），当然也可以创建和上传发布自己的模块（包）技术框架介绍 node.js 基础核心开发语言 Express 一个简洁而灵活的node.js Web应用框架，提供一系列强大的特性帮助我们创建各种web应用 Mongodb 第三方模块&amp;amp; 中间件   bodyParser:解析post请求">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-31T08:21:47.672Z">
+<meta property="og:updated_time" content="2018-08-01T01:59:02.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node">
 <meta name="twitter:description" content="npm(node包管理工具)的使用 第三方node模块（包）的管理工具，可以使用该工具下载安装第三方模块（包），当然也可以创建和上传发布自己的模块（包）技术框架介绍 node.js 基础核心开发语言 Express 一个简洁而灵活的node.js Web应用框架，提供一系列强大的特性帮助我们创建各种web应用 Mongodb 第三方模块&amp;amp; 中间件   bodyParser:解析post请求">
@@ -298,7 +298,7 @@
 <li>输入npm init会生成一个package.json<h1 id="依赖模块安装"><a href="#依赖模块安装" class="headerlink" title="依赖模块安装"></a>依赖模块安装</h1></li>
 <li>安装express npm install –save express</li>
 <li>安装body-parser npm install –save body-parser</li>
-<li>安装cookies npm install –save cookies</li>
+<li>安装cookies npm install –save cook#  #ies</li>
 <li>安装markdown npm install –save markdown</li>
 <li>安装mongoose npm install –save mongoose</li>
 <li>安装swig npm install –save swig</li>
@@ -320,10 +320,41 @@
 <li>通过app.get()或app.post()等方法可以把一个url路径和一个或n个函数进行绑定</li>
 <li>app.get(‘/‘,function(req,res,next) {</li>
 <li>req:request对象-保存客户端请求相关的一些数据-http.reqest</li>
-<li>res:response对象-服务端输出的对象，提供了一些服务器端输出的相关方法-http.response</li>
+<li>res:response对象-服务端输出的对象，提供了一些服务器端输出的相关方法-http.response，常用方法res.write(‘字符串或者标签’)，res.render(‘html文件’)，res.json(‘返回给前台一个对象’)</li>
 <li>next:方法，用于执行下一个和路径匹配的函数</li>
-<li>})<h1 id="内容输出"><a href="#内容输出" class="headerlink" title="内容输出"></a>内容输出</h1>通过res.send(string)发送内容至客户端</li>
+<li>})<h1 id="内容输出"><a href="#内容输出" class="headerlink" title="内容输出"></a>内容输出</h1>通过res.send(string)发送内容至客户端<h1 id="使用模板"><a href="#使用模板" class="headerlink" title="使用模板"></a>使用模板</h1><h2 id="模板的使用"><a href="#模板的使用" class="headerlink" title="模板的使用"></a>模板的使用</h2>后端逻辑和页面表现分离 - 亲后端分离<h2 id="模板配置"><a href="#模板配置" class="headerlink" title="模板配置"></a>模板配置</h2></li>
+<li>var swig= require(‘swig’);加载模板处理模块</li>
+<li>app.engine(‘html’,swig.renderFile);定义模板引擎，使用swig.renderFile方法解析后缀为html的文件，第一个单数末班引擎的名称，同时也是模板引擎的后缀。</li>
+<li>app.set(‘views’,’./views); 设置模板文件存放目录，第一个参数必须是views,第二个参数是目录</li>
+<li>app.set(‘view engine’,’html’); 注册所使用的模板引擎，第一个单数必须是’view engine’,第二个参数必须和app.engine(‘html’,swig.renderFile)方法的第一个参数一致。</li>
+<li>swig.setDefaults({catche:false});<h2 id="res-render"><a href="#res-render" class="headerlink" title="res.render"></a>res.render</h2>res.render(‘index’);读取views目录下的指定文件，解析并返回给客户端，第一个参数，表示模板的文件，相对于views目录第二个参数：传递给模板使用的数据<h1 id="静态资源文件处理（托管）"><a href="#静态资源文件处理（托管）" class="headerlink" title="静态资源文件处理（托管）"></a>静态资源文件处理（托管）</h1>app.use(‘/public’,express.static(<strong>dirname + ‘/public’));在public目录下划分并存放好相关的静态资源文件，当用户访问的url以/public开始，那么直接返回对应的</strong>dirname+’/public’下的文件<h1 id="划分模块"><a href="#划分模块" class="headerlink" title="划分模块"></a>划分模块</h1><h2 id="根据功能进行划分"><a href="#根据功能进行划分" class="headerlink" title="根据功能进行划分"></a>根据功能进行划分</h2></li>
+<li>前台模块</li>
+<li>后台模块</li>
+<li>API模块<h2 id="使用app-use-进行模块划分"><a href="#使用app-use-进行模块划分" class="headerlink" title="使用app.use()进行模块划分"></a>使用app.use()进行模块划分</h2></li>
+<li>app.use(‘/admin’,require(‘./routers/admin’));</li>
+<li>app.use(‘/api’,require(‘./routers/api’);</li>
+<li>app.user(‘/‘,require(‘./routers/main);</li>
+<li>var router = express.Router();//创建一个路由对象，这个对象将会监听以斜线admin的url<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1></li>
 </ul>
+<ol>
+<li>var mongoose = require(‘mongoose’);//加载数据库模块</li>
+<li>mongoose.connect()链接数据库<h2 id="数据库的使用"><a href="#数据库的使用" class="headerlink" title="数据库的使用"></a>数据库的使用</h2></li>
+<li>开启mongodb数据库 mongod –dbpath=数据文件保存路径<a href="https://www.mongodb.com" target="_blank" rel="noopener">https://www.mongodb.com</a> 安装mongod</li>
+<li>mongoose.connect(‘mongodb://localhost:27017/test’,function(err) {<br> if(err) {<pre><code>console.log(&quot;数据库连接失败&quot;)
+</code></pre> }else {<pre><code>console.log(&quot;数据库连接成功&quot;);
+app.listen(8082)
+</code></pre> }<br>})<h3 id="开启步骤"><a href="#开启步骤" class="headerlink" title="开启步骤"></a>开启步骤</h3></li>
+</ol>
+<ul>
+<li>cmd 进入安装bin的文件夹</li>
+<li>mongod –dbpath=数据要保存的路径 port=27018(如果设置端口)</li>
+</ul>
+<ol start="2">
+<li>数据保存 使用mongoose操作数据库 <a href="http://mongoosejs.com/，var" target="_blank" rel="noopener">http://mongoosejs.com/，var</a> mongoose = require(‘mongoose’); module.exports = new mongoose.Schema({username:String,password:String});</li>
+<li>创建model 通过Schema创建模型类，mongoose.model(‘模型类名称’，Schema);var mongoose = require(‘mongoose’);<br>var userScehma = require(‘../schemas/user’);module.exports = mongoose.model(‘User’,userSchema);<h1 id="body-parser解析post请求"><a href="#body-parser解析post请求" class="headerlink" title="body-parser解析post请求"></a>body-parser解析post请求</h1>在app.js 中引用 var bodyParser= require(‘body-parser’); 设置 app.use(bodyParser.urlencoded(extend:true));然后在接口当中的request对象中属性body进行访问<h1 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h1></li>
+<li>var User = require(‘../models/user’); User.findOne({username:username}).then(function(pro) {})pro为null表示数据库没有</li>
+<li>new.User({username:username,password:password}).save();</li>
+</ol>
 
         
       </div>
@@ -437,7 +468,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#npm-node包管理工具-的使用"><span class="nav-number">1.</span> <span class="nav-text">npm(node包管理工具)的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技术框架介绍"><span class="nav-number">2.</span> <span class="nav-text">技术框架介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三方模块-amp-中间件"><span class="nav-number">3.</span> <span class="nav-text">第三方模块&amp; 中间件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目初始化"><span class="nav-number">4.</span> <span class="nav-text">项目初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖模块安装"><span class="nav-number">5.</span> <span class="nav-text">依赖模块安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目结构分析"><span class="nav-number">6.</span> <span class="nav-text">项目结构分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建应用-监听端口"><span class="nav-number">7.</span> <span class="nav-text">创建应用 监听端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户的访问"><span class="nav-number">8.</span> <span class="nav-text">用户的访问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理请求输出"><span class="nav-number">9.</span> <span class="nav-text">处理请求输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内容输出"><span class="nav-number">10.</span> <span class="nav-text">内容输出</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#npm-node包管理工具-的使用"><span class="nav-number">1.</span> <span class="nav-text">npm(node包管理工具)的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技术框架介绍"><span class="nav-number">2.</span> <span class="nav-text">技术框架介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三方模块-amp-中间件"><span class="nav-number">3.</span> <span class="nav-text">第三方模块&amp; 中间件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目初始化"><span class="nav-number">4.</span> <span class="nav-text">项目初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖模块安装"><span class="nav-number">5.</span> <span class="nav-text">依赖模块安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目结构分析"><span class="nav-number">6.</span> <span class="nav-text">项目结构分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建应用-监听端口"><span class="nav-number">7.</span> <span class="nav-text">创建应用 监听端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户的访问"><span class="nav-number">8.</span> <span class="nav-text">用户的访问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理请求输出"><span class="nav-number">9.</span> <span class="nav-text">处理请求输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内容输出"><span class="nav-number">10.</span> <span class="nav-text">内容输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用模板"><span class="nav-number">11.</span> <span class="nav-text">使用模板</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模板的使用"><span class="nav-number">11.1.</span> <span class="nav-text">模板的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板配置"><span class="nav-number">11.2.</span> <span class="nav-text">模板配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#res-render"><span class="nav-number">11.3.</span> <span class="nav-text">res.render</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态资源文件处理（托管）"><span class="nav-number">12.</span> <span class="nav-text">静态资源文件处理（托管）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#划分模块"><span class="nav-number">13.</span> <span class="nav-text">划分模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#根据功能进行划分"><span class="nav-number">13.1.</span> <span class="nav-text">根据功能进行划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用app-use-进行模块划分"><span class="nav-number">13.2.</span> <span class="nav-text">使用app.use()进行模块划分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库"><span class="nav-number">14.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库的使用"><span class="nav-number">14.1.</span> <span class="nav-text">数据库的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开启步骤"><span class="nav-number">14.1.1.</span> <span class="nav-text">开启步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#body-parser解析post请求"><span class="nav-number">15.</span> <span class="nav-text">body-parser解析post请求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库操作"><span class="nav-number">16.</span> <span class="nav-text">数据库操作</span></a></li></ol></div>
             
 
           </div>
